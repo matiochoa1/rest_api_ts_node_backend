@@ -1,0 +1,19 @@
+{
+  "name": "rest_api_node_ts_server",
+  "version": "1.0.0",
+  "description": "REST API's con Express y Typescript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matiochoa1/rest_api_node_ts_server.git"
+  },
+  "author": "Matias Ochoa Tuñon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/matiochoa1/rest_api_node_ts_server/issues"
+  },
+  "homepage": "https://github.com/matiochoa1/rest_api_node_ts_server#readme"
+}
