@@ -9,6 +9,7 @@ const db = new Sequelize(process.env.DATABASE_URL!, {
 			require: false,
 		},
 	},
+	logging: false,
 });
 
 export default db;

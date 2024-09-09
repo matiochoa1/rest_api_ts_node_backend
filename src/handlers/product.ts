@@ -95,7 +95,7 @@ export const createProduct = async (req: Request, res: Response) => {
 	try {
 		const product = await Product.create(req.body); // create es una alternativa a new Product(req.body) ya que crea todo en una sola linea
 
-		res.json({
+		res.status(201).json({
 			data: product,
 		});
 	} catch (error) {
