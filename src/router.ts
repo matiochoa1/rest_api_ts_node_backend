@@ -27,6 +27,14 @@ router.get(
 router.put(
 	"/:id",
 	param("id").isInt().withMessage("El id debe ser un numero"),
+	body("name").notEmpty().withMessage("El nombre no puede ir vacio"),
+	body("price")
+		.isNumeric()
+		.withMessage("El precio debe ser un numero")
+		.custom((value) => value > 0),
+	body("available")
+		.isBoolean()
+		.withMessage("El disponible debe ser un booleano"),
 	handleInputErrors,
 	updateProduct
 );
