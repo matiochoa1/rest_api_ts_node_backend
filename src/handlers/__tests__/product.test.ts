@@ -154,6 +154,31 @@ describe("PUT - Product", () => {
 	});
 });
 
+// TESTS - PATCH
+describe("PATCH - product by id", () => {
+	it("Should return a 404 for a non existent product", async () => {
+		const productId = 2000;
+		const response = await request(server).patch(`/api/products/${productId}`);
+
+		expect(response.status).toBe(404);
+		expect(response.body.message).toBe("Producto no encontrado");
+
+		expect(response.status).not.toBe(200);
+		expect(response.status).not.toHaveProperty("data");
+	});
+
+	it("Should update the product availability", async () => {
+		const productId = 1;
+		const response = await request(server).patch(`/api/products/${productId}`);
+
+		expect(response.status).toBe(200);
+		expect(response.body).toHaveProperty("data");
+
+		expect(response.status).not.toBe(404);
+		expect(response.status).not.toBe(400);
+	});
+});
+
 // TESTS - DELETE
 describe("DELETE - Product", () => {
 	it("Should check that a valid ID is passed in the URL", async () => {
