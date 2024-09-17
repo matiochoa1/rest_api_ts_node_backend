@@ -4,14 +4,14 @@ export const Layout = () => {
 	return (
 		<>
 			<header className="bg-slate-800">
-				<div className="mx-auto max-w-6xl py-10">
+				<div className="max-w-6xl py-10 mx-auto">
 					<h1 className="text-4xl font-extrabold text-white">
 						Administrador de Productos
 					</h1>
 				</div>
 			</header>
 
-			<main className="mt-10 mx-auto max-w-6xl p-10 bg-white shadow rounded-sm">
+			<main className="max-w-6xl p-10 mx-auto mt-10 bg-white rounded-sm shadow">
 				<Outlet />
 			</main>
 		</>

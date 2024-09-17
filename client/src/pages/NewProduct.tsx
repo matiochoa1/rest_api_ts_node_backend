@@ -3,8 +3,10 @@ import {
 	Form,
 	useActionData,
 	ActionFunctionArgs,
+	redirect,
 } from "react-router-dom";
 import ErrorMessage from "../components/ErrorMessage";
+import { addProduct } from "../services/ProductService";
 
 export async function action({ request }: ActionFunctionArgs) {
 	const data = Object.fromEntries(await request.formData());
@@ -18,7 +20,9 @@ export async function action({ request }: ActionFunctionArgs) {
 		return error;
 	}
 
-	return {};
+	await addProduct(data);
+
+	return redirect("/");
 }
 
 export const NewProduct = () => {
@@ -32,7 +36,7 @@ export const NewProduct = () => {
 				</h2>
 				<Link
 					to={"/"}
-					className="rounded-md bg-indigo-600 p-3 text-sm font-bold text-white shadow-sm hover:bg-indigo-500">
+					className="p-3 text-sm font-bold text-white bg-indigo-600 rounded-md shadow-sm hover:bg-indigo-500">
 					Volver a Productos
 				</Link>
 			</div>
@@ -47,7 +51,7 @@ export const NewProduct = () => {
 					<input
 						id="name"
 						type="text"
-						className="mt-2 block w-full p-3 bg-gray-50"
+						className="block w-full p-3 mt-2 bg-gray-50"
 						placeholder="Nombre del Producto"
 						name="name"
 					/>
@@ -59,14 +63,14 @@ export const NewProduct = () => {
 					<input
 						id="price"
 						type="number"
-						className="mt-2 block w-full p-3 bg-gray-50"
+						className="block w-full p-3 mt-2 bg-gray-50"
 						placeholder="Precio Producto. ej. 200, 300"
 						name="price"
 					/>
 				</div>
 				<input
 					type="submit"
-					className="mt-5 w-full bg-indigo-600 p-2 text-white font-bold text-lg cursor-pointer rounded"
+					className="w-full p-2 mt-5 text-lg font-bold text-white bg-indigo-600 rounded cursor-pointer"
 					value="Registrar Producto"
 				/>
 			</Form>
